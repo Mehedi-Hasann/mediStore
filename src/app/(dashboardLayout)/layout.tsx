@@ -1,4 +1,3 @@
-
 import { AppSidebar } from "@/components/app-sidebar"
 import {
   Breadcrumb,
@@ -15,10 +14,13 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 
-export default function Page({admin,customer,seller}:{admin : React.ReactNode,customer : React.ReactNode,seller : React.ReactNode,children : React.ReactNode}) {
+export default function Page({admin,customer,seller}: {admin: React.ReactNode,customer: React.ReactNode,seller:React.ReactNode}) {
+  const userInfo = {
+    role : "customer"
+  }
   return (
     <SidebarProvider>
-      <AppSidebar />
+      <AppSidebar user={userInfo}/>
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
           <SidebarTrigger className="-ml-1" />
@@ -39,9 +41,7 @@ export default function Page({admin,customer,seller}:{admin : React.ReactNode,cu
           </Breadcrumb>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4">
-          {admin}
-          {customer}
-          {seller}
+          {userInfo.role==='admin'? admin : userInfo.role==='customer'? customer : seller}
         </div>
       </SidebarInset>
     </SidebarProvider>
