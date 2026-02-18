@@ -7,7 +7,7 @@ export default async function Home() {
   const {data} = await medicineService.getAllMedicine(
     {
       // search : "tulos",
-      price : 10
+      // price : 10
     }
   );
 

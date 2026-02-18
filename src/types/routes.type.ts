@@ -32,3 +32,39 @@ export interface MedicinePost {
   updatedAt : string,
   orders : Order[]
 }
+
+export interface Medicine {
+  id: string;
+  name: string;
+  price: number;
+  stock: number;
+  categoryId: string;
+  categoryName: string;
+  createdAt: string;
+  updatedAt: string;
+  orders: any[];
+}
+export interface CreateNewMedicine {
+  name : string,
+  category : string,
+  price : number,
+  stock : number
+}
+export interface Orders  {
+  id?: string;
+  totalAmount?: number;
+  quantity?: number;
+  userId?: string;
+  medicineId?: string;
+  status?: string;
+  shippingAddress?: string | null;
+  createdAt?: string;
+}
+
+export interface OrdersResponse {
+  data: Orders[];
+  total: number;
+  page: number;
+  limit: number;
+  totalPage: number;
+}
