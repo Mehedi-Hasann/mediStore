@@ -68,3 +68,16 @@ export interface OrdersResponse {
   limit: number;
   totalPage: number;
 }
+
+export interface medicineParams {
+  search ?: string,
+  price ?: number,
+  category ?: string,
+  sortBy ?: string,
+  sortOrder ?: string
+}
+export interface MedicineData {
+  name ?: string,
+  price : number,
+  stock : number
+}

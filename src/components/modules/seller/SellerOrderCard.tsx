@@ -79,7 +79,7 @@ export function OrderCard({ items }: { items: OrdersResponse }) {
                       [item.id!]: e.target.value as OrderStatus,
                     }))
                   }
-                  className="border rounded-md px-2 py-1 text-sm"
+                  className="border bg-black font-bold rounded-md px-2 py-1 text-sm"
                 >
                   {Object.values(OrderStatus).map((status) => (
                     <option key={status} value={status}>

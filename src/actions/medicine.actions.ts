@@ -1,7 +1,7 @@
 "use server";
 
-import { MedicineData, medicineService } from "@/services/medicine.service";
-import { CreateNewMedicine, OrderStatus } from "@/types/routes.type";
+import {  medicineService } from "@/services/medicine.service";
+import { CreateNewMedicine, MedicineData, OrderStatus } from "@/types/routes.type";
 
 export const getSingleMedicine = async(slug : string) => {
   const res = await medicineService.getMedicineById(slug)

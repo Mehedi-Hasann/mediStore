@@ -1,21 +1,10 @@
 import { env } from "@/env";
-import { CreateNewMedicine, OrderStatus } from "@/types/routes.type";
+import { CreateNewMedicine, MedicineData, medicineParams, OrderStatus } from "@/types/routes.type";
 import { revalidateTag, updateTag } from "next/cache";
 import { cookies } from "next/headers";
 
 const API_URL = env.API_URL;
-interface medicineParams {
-  search ?: string,
-  price ?: number,
-  category ?: string,
-  sortBy ?: string,
-  sortOrder ?: string
-}
-export interface MedicineData {
-  name ?: string,
-  price : number,
-  stock : number
-}
+
 
 export const medicineService = {
   createMedicine : async function (data : CreateNewMedicine) {
@@ -58,7 +47,7 @@ export const medicineService = {
       const res = await fetch(`${API_URL}/api/categories/${cName}`,{
         method : "GET",
         headers : {
-          "Application-Type" : "application/json",
+          "Content-Type" : "application/json",
           Cookie : cookieStore.toString(),
         }
       })

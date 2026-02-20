@@ -1,10 +1,16 @@
-export default function ProfilePage () {
+import { getMyInfo } from "@/actions/customer.actions";
+import { CustomerProfileCard } from "@/components/modules/customer/CustomerProfileCard";
+
+export default async function ProfilePage () {
+
+  const data = await getMyInfo();
+  // console.log(data.data);
   
   return (
     
     <div>
 
-      <h1>This is Customer Profile</h1>
+      <CustomerProfileCard user = {data.data} />
 
     </div>
     
